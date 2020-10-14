@@ -7,14 +7,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
         title: GestureDetector(
           onTap: () {
-            controller.jumpToPage(0);
+            controller.animateToPage(0,
+                duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
           },
           child: Text(
             "Sushan Shakya",
@@ -25,14 +25,16 @@ class Home extends StatelessWidget {
         actions: [
           MaterialButton(
             onPressed: () {
-              // controller.jumpToPage(1);
-              showDialog(
-                  context: context,
-                  child: AlertDialog(
-                    title: Text("Sorry !"),
-                    content: Text(
-                        "The page you are trying to access is currently under construction."),
-                  ));
+              controller.animateToPage(1,
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.easeInOut);
+              // showDialog(
+              //     context: context,
+              //     child: AlertDialog(
+              //       title: Text("Sorry !"),
+              //       content: Text(
+              //           "The page you are trying to access is currently under construction."),
+              //     ));
             },
             child: Text(
               "Projects",
@@ -64,7 +66,7 @@ class Home extends StatelessWidget {
         scrollDirection: Axis.vertical,
         children: [
           About(),
-          // Projects(),
+          Projects(),
         ],
       ),
     );

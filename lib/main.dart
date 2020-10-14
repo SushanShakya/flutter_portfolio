@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:portfolio/Views/home.dart';
 import 'package:portfolio/Views/splash.dart';
 
 void main() => runApp(Portfolio());
